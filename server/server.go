@@ -2,6 +2,7 @@ package server
 
 import (
 	"log"
+	"net"
 	"net/http"
 
 	"github.com/gorilla/handlers"
@@ -27,7 +28,7 @@ func Start() {
 	allowedOrigin := handlers.AllowedOrigins(Config.Server.CorsException)
 
 	server := &http.Server{
-		Addr:    ":" + Config.Server.Port,
+		Addr:    net.JoinHostPort("", Config.Server.Port),
 		Handler: handlers.CORS(allowedHeader, allowedOrigin)(r),
 	}
 
