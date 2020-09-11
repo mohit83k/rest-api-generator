@@ -1,0 +1,22 @@
+{
+    "server" : {
+        "port" : "8080",
+        "tls" : true,
+        "certificate" : "",
+        "privateKey" : "",
+        "corsException" : ["http://example.com"],
+        "allowedHeaders" : []
+    },
+    "apiRoutes" : [
+        {
+            "url"  : "/person",
+            "file" : "person.json" 
+        },
+        {
+            "url" : "/student/{name}",
+            "file" : "student.json"
+        }
+    ],
+    "mockDir" : "./mocks"
+    
+}
