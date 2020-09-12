@@ -2,6 +2,7 @@ package configuration
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -14,7 +15,10 @@ import (
 var Config configuration
 
 func init() {
-	readconfig("./config.json")
+
+	str := flag.String("config", "./config.json", "-cofing=path of config file")
+	flag.Parse()
+	readconfig(*str)
 	validateConfig()
 }
 
